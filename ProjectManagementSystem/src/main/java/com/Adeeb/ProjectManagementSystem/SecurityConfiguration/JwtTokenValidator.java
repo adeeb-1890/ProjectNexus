@@ -13,6 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextHolderThreadLocalAccessor;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.crypto.SecretKey;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+@Component
 public class JwtTokenValidator extends OncePerRequestFilter {
 
     @Override
@@ -49,7 +51,7 @@ public class JwtTokenValidator extends OncePerRequestFilter {
                         commaSeparatedStringToAuthorityList(authorities);
 
                 Authentication authentication = new UsernamePasswordAuthenticationToken(email , null , grantedAuthorities);
-                SecurityContextHolder.getContext().setAuthentication();
+                SecurityContextHolder.getContext().setAuthentication(authentication);
             } catch (Exception e) {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 return;
