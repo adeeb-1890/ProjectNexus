@@ -26,7 +26,7 @@ public class Project {
     @ManyToOne
     private User Leader;
 
-    private List<String> tage  = new ArrayList<>();
+    private List<String> tags  = new ArrayList<>();
 
     @JsonIgnore
     @OneToOne(mappedBy = "project" , cascade = CascadeType.ALL, orphanRemoval = true)
@@ -39,6 +39,6 @@ public class Project {
     private List<Issue> issues = new ArrayList<>();
 
     @ManyToMany
-    private List<User> users = new ArrayList<>();
+    private List<User> team = new ArrayList<>();
 
 }

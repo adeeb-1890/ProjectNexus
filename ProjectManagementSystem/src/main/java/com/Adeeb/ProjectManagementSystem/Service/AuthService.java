@@ -45,7 +45,7 @@ public class AuthService {
         newuser.setEmail(user.getEmail());
         newuser.setPassword(passwordEncoder.encode(user.getPassword()));
         newuser.setFullName(user.getFullName());
-        newuser.setNumberOfProjects(0);
+        newuser.setNumberOfProjects(0L);
         User SavedUser = userRepo.save(newuser);
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(user.getEmail() , user.getPassword());

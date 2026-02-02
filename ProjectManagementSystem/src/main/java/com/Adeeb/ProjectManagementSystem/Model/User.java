@@ -20,7 +20,7 @@ public class User {
     private String fullName;
     private String email;
     private String password;
-    private Integer numberOfProjects;
+    private Long numberOfProjects;
 
     @JsonIgnore
     @OneToMany(mappedBy = "assignee" , cascade = CascadeType.ALL)
