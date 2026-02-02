@@ -81,7 +81,6 @@ public class ProjectServiceImplementation implements ProjectService{
         Project project = getProjectById(projectId);
         User user = userService.findUserById(userId);
 
-        // Authorization check
         if (!project.getLeader().getId().equals(user.getId())) {
             throw new Exception("Only project owner can delete the project");
         }
@@ -129,5 +128,14 @@ public class ProjectServiceImplementation implements ProjectService{
         Project project = getProjectById(projectId);
 
         return project.getChat();
+    }
+
+    @Override
+    public List<Project> searchProjects(String keyword, User user) throws Exception {
+        String partialName = "%" + keyword + "%";
+
+        List<Project> projects = projectRepo.findByNameContainingAndTeamContains(keyword , user);
+
+        return projects;
     }
 }
