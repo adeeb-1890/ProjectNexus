@@ -1,31 +1,32 @@
 package com.Adeeb.ProjectManagementSystem.Model;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data@NoArgsConstructor
-@AllArgsConstructor
-public class User {
+@Data@NoArgsConstructor @AllArgsConstructor
+public class Chat {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private String fullName;
-    private String email;
-    private String password;
-    private Integer numberOfProjects;
+    private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "assignee" , cascade = CascadeType.ALL)
-    private List<Issue> assignedIssues = new ArrayList<>();
-
-    @OneToMany(mappedBy = "sender" , cascade = CascadeType.ALL , orphanRemoval = true)
+    @OneToMany(mappedBy = "chat" , cascade =  CascadeType.ALL , orphanRemoval = true)
     private List<Messages> messages = new ArrayList<>();
+
+    @OneToOne
+    private Project project;
+
+    @ManyToMany
+    private List<User> users = new ArrayList<>();
 }
