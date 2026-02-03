@@ -88,7 +88,7 @@ public class ProjectController {
         return new ResponseEntity<>(projects , HttpStatus.OK);
     }
 
-    @GetMapping("/{projectId/chat}")
+    @GetMapping("/{projectId}/chat")
     public ResponseEntity<Chat> getChatByProjectId(Long projectId,
                                                   @RequestHeader("Authorization")String token) throws Exception {
 

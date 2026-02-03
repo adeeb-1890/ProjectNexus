@@ -9,7 +9,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Invitation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,5 +19,5 @@ public class Invitation {
 
     private String token;
     private String email;
-    private String projectId;
+    private Long projectId;
 }
