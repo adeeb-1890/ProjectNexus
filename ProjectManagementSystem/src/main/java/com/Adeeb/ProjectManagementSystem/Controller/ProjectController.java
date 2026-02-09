@@ -1,11 +1,11 @@
 package com.Adeeb.ProjectManagementSystem.Controller;
 
 import com.Adeeb.ProjectManagementSystem.Model.*;
+import com.Adeeb.ProjectManagementSystem.Request.InvitationRequest;
 import com.Adeeb.ProjectManagementSystem.Response.MessageResponse;
 import com.Adeeb.ProjectManagementSystem.Service.InvitationService;
 import com.Adeeb.ProjectManagementSystem.Service.ProjectService;
 import com.Adeeb.ProjectManagementSystem.Service.UserService;
-import jakarta.mail.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.Adeeb.ProjectManagementSystem.Model;
+package com.Adeeb.ProjectManagementSystem.Request;
 
 
 import lombok.AllArgsConstructor;
