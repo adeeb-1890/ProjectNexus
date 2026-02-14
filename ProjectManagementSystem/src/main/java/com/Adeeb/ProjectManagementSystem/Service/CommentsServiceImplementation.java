@@ -7,11 +7,13 @@ import com.Adeeb.ProjectManagementSystem.Repository.CommentRepo;
 import com.Adeeb.ProjectManagementSystem.Repository.IssueRepo;
 import com.Adeeb.ProjectManagementSystem.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CommentsServiceImplementation implements CommentsService{
 
     @Autowired

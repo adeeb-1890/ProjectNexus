@@ -51,7 +51,7 @@ public class AuthService {
         newuser.setNumberOfProjects(0L);
         User SavedUser = userRepo.save(newuser);
 
-        subscriptionService.createSubscription(SavedUser)
+        subscriptionService.createSubscription(SavedUser);
         Authentication authentication = new UsernamePasswordAuthenticationToken(user.getEmail() , user.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 

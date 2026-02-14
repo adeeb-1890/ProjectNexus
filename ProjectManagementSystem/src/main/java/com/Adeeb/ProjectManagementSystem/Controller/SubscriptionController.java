@@ -33,6 +33,6 @@ public class SubscriptionController {
         User user = userService.findUserProfileByJwt(jwtToken);
 
          Subscription subscription = subscriptionService.upgradeSubscription(user.getId() , planType);
-         return ResponseEntity.ok(subscription);  
+         return ResponseEntity.ok(subscription);
     }
 }
