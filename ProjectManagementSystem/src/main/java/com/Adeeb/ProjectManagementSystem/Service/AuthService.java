@@ -1,5 +1,6 @@
 package com.Adeeb.ProjectManagementSystem.Service;
 
+import com.Adeeb.ProjectManagementSystem.Model.Subscription;
 import com.Adeeb.ProjectManagementSystem.Model.User;
 import com.Adeeb.ProjectManagementSystem.Repository.UserRepo;
 import com.Adeeb.ProjectManagementSystem.Response.AuthResponse;
@@ -30,6 +31,8 @@ public class AuthService {
     @Autowired
     JwtProvider jwtProvider;
 
+    @Autowired
+    private SubscriptionService subscriptionService;
 
 
 
@@ -48,6 +51,7 @@ public class AuthService {
         newuser.setNumberOfProjects(0L);
         User SavedUser = userRepo.save(newuser);
 
+        subscriptionService.createSubscription(SavedUser)
         Authentication authentication = new UsernamePasswordAuthenticationToken(user.getEmail() , user.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
